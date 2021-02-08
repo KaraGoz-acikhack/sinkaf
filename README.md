@@ -29,10 +29,11 @@ from sinkaf import tahmin, tahminlik
 
 tahmin(["cok tatli cocuk", "cok serefsiz cocuk"])
 # array([False,  True])
+
 tahminlik(["cok tatli cocuk", "cok serefsiz cocuk"])
 # array([0.04837164, 0.74293361])
 ```
 
 ## İyi çalışıyor mu?
-Fena değil ama tabi daha iyi kesinlikle olabilir.  
-Detaylar için bkz. `sinkaf.ipynb`!
+Fena değil gibi ama tabi daha iyi kesinlikle olabilir.  
+Detaylar için bkz. [link](sinkaf.ipynb)!
