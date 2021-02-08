@@ -3,10 +3,11 @@ import string
 import joblib
 import numpy as np
 import pkg_resources
+from urllib.request import urlopen
 
 table = str.maketrans('', '', string.punctuation)
-vectorizer = joblib.load(pkg_resources.resource_filename('sinkaf', 'data/vectorizer.joblib'))
-model = joblib.load(pkg_resources.resource_filename('sinkaf', 'data/model.joblib'))
+vectorizer = joblib.load(urlopen("https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/vectorizer.joblib?raw=true"))
+model = joblib.load(urlopen("https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/model.joblib?raw=true"))
 
 def lower(s):
     return s.lower()
