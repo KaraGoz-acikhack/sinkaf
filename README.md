@@ -11,7 +11,7 @@
 
 ## Farkı nedir?
 
-Diğer algoritmalardan en büyük farkı, önceden belirlenmiş bir kelime listesinden yorumlardaki sözcükleri tek tek kontrol etmek yerine, makine öğrenmesi metodları kullanarak cümlenin genel anlamına bakabilmesidir. Aynı zamanda `sinkaf` baya bi hızlı! 
+Diğer algoritmalardan en büyük farkı, önceden belirlenmiş bir kelime listesinden cümlerlerdeki sözcükleri tek tek kontrol etmek yerine, makine öğrenmesi metodları kullanarak cümlenin genel anlamına bakabilmesidir. Aynı zamanda `sinkaf` baya bi hızlı! 
 
 ## Nasıl çalışıyor?
 
