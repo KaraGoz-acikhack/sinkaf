@@ -5,7 +5,6 @@ import numpy as np
 import pkg_resources
 
 table = str.maketrans('', '', string.punctuation)
-
 vectorizer = joblib.load(pkg_resources.resource_filename('sinkaf', 'data/vectorizer.joblib'))
 model = joblib.load(pkg_resources.resource_filename('sinkaf', 'data/model.joblib'))
 
@@ -29,14 +28,15 @@ def nStemmer(s, n):
     raise Exception("n must be a positive integer!")
 
 
-def preProcess(s, n=5):
+def preProcess(s, n=10):
     return nStemmer(removePunctuation(removeNumbers(removeUserNames(lower(s)))),n)
 
+
 def tahmin(texts):
-    return model.predict(vectorizer.transform(preProcess(texts, 10)))
+        return model.predict(vectorizer.transform([preProcess(p) for p in texts]))
 
 def _get_profane_prob(prob):
   return prob[1]
 
 def tahminlik(texts):
-    return np.apply_along_axis(_get_profane_prob, 1, model.predict_proba(vectorizer.transform(preProcess(texts, 10))))
+    return np.apply_along_axis(_get_profane_prob, 1, model.predict_proba(vectorizer.transform([preProcess(p) for p in texts])))
