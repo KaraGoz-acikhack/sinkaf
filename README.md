@@ -35,5 +35,4 @@ tahminlik(["cok tatli cocuk", "cok serefsiz cocuk"])
 ```
 
 ## İyi çalışıyor mu?
-Fena değil gibi ama tabi daha iyi kesinlikle olabilir.  
-Detaylar için bkz. [link](sinkaf.ipynb)
+Fena değil gibi ama tabi daha iyi kesinlikle olabilir. Detaylar için bkz. [link](sinkaf.ipynb)
