@@ -2,4 +2,4 @@
 
 > _"Kötü söz sahibine aittir."_
 >
-> - Anonim
+> -Anonim
