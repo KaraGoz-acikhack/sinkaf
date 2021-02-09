@@ -1,7 +1,5 @@
 # sinkaf
 
-[![PyPI version](https://badge.fury.io/py/sinkaf.svg)](https://badge.fury.io/py/sinkaf)
-
 > _"Kötü söz sahibine aittir."_
 >
 > -Anonim
@@ -20,6 +18,9 @@ Diğer algoritmalardan en büyük farkı, önceden belirlenmiş bir kelime liste
 Arka planda modelimizi eğitmek için [A corpus of Turkish offensive language](https://coltekin.github.io/offensive-turkish/guidelines.html) verisetini kullanıyoruz. Bu veriseti 36,000+ twitter yorumunun hakaret içerip içermediğini gösteren, Türkçe ile makine öğrenmesi denemeleri yapmak isteyenler için fevkaledenin fevkinde bir kaynak! Kendilerine teşekkür ediyoruz. Velhasıl...
 
 ## Nasıl yüklerim?
+
+[![PyPI version](https://badge.fury.io/py/sinkaf.svg)](https://badge.fury.io/py/sinkaf)
+
 ```python
 pip install sinkaf
 ```
