@@ -1,5 +1,7 @@
 # sinkaf
 
+[![PyPI version](https://badge.fury.io/py/sinkaf.svg)](https://badge.fury.io/py/sinkaf)
+
 > _"Kötü söz sahibine aittir."_
 >
 > -Anonim
