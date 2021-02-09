@@ -20,6 +20,7 @@ Arka planda modelimizi eğitmek için [A corpus of Turkish offensive language](h
 ## Nasıl yüklerim?
 
 [![PyPI version](https://badge.fury.io/py/sinkaf.svg)](https://badge.fury.io/py/sinkaf)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/sinkaf?color=orange)
 
 ```python
 pip install sinkaf
@@ -30,10 +31,10 @@ pip install sinkaf
 ```python
 from sinkaf import tahmin, tahminlik
 
->>> tahmin(["çok tatlı çocuk", "çok şerefsiz çocuk"])
+tahmin(["çok tatlı çocuk", "çok şerefsiz çocuk"])
 # array([False,  True])
 
->>> tahminlik(["çok tatlı çocuk", "çok şerefsiz çocuk"])
+tahminlik(["çok tatlı çocuk", "çok şerefsiz çocuk"])
 # array([0.06217876, 0.99132834])
 ```
 
