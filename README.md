@@ -1,4 +1,4 @@
-# sinkaf
+<img src="sinkaf/data/sinkaf.jpg" width="150" />
 
 > _"Kötü söz sahibine aittir."_
 >
