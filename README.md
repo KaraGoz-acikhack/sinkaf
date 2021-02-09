@@ -30,11 +30,11 @@ pip install sinkaf
 ```python
 from sinkaf import tahmin, tahminlik
 
-tahmin(["cok tatli cocuk", "cok serefsiz cocuk"])
+>>> tahmin(["çok tatlı çocuk", "çok şerefsiz çocuk"])
 # array([False,  True])
 
-tahminlik(["cok tatli cocuk", "cok serefsiz cocuk"])
-# array([0.04837164, 0.74293361])
+>>> tahminlik(["çok tatlı çocuk", "çok şerefsiz çocuk"])
+# array([0.06217876, 0.99132834])
 ```
 
 ## İyi çalışıyor mu?
