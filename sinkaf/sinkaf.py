@@ -1,42 +1,53 @@
-import re
-import string
 import joblib
 import numpy as np
 import pkg_resources
+import re
+import string
 
-table = str.maketrans('', '', string.punctuation)
-vectorizer = joblib.load(pkg_resources.resource_filename('sinkaf', 'data/vectorizer.joblib'))
-model = joblib.load(pkg_resources.resource_filename('sinkaf', 'data/model.joblib'))
+table = str.maketrans("", "", string.punctuation)
+vectorizer = joblib.load(
+    pkg_resources.resource_filename("sinkaf", "data/vectorizer.joblib")
+)
+clf = joblib.load(pkg_resources.resource_filename(
+    "sinkaf", "data/clf.joblib"))
 
-def lower(s):
-    return s.lower()
 
-def removeUserNames(s):
-    return re.sub('@[^\s]+','',s)
+def remove_user_names(s):
+    return re.sub("@[^\s]+", "", s)
 
-def removeNumbers(s):
-    return re.sub('[0-9]','',s)
 
-def removePunctuation(s):
+def remove_numbers(s):
+    return re.sub("[0-9]", "", s)
+
+
+def remove_punctuation(s):
     res = [w.translate(table) for w in s.split()]
     return " ".join(res)
 
-def nStemmer(s, n):
-    if(n>0):
+
+def n_stemmer(s, n):
+    if n > 0:
         res = [x[:n] for x in s.split()]
         return " ".join(res)
     raise Exception("n must be a positive integer!")
 
 
-def preProcess(s, n=10):
-    return nStemmer(removePunctuation(removeNumbers(removeUserNames(lower(s)))),n)
+def pre_process(s, n=5):
+    return n_stemmer(remove_punctuation(remove_numbers(remove_user_names(s))), n)
 
 
 def tahmin(texts):
-        return model.predict(vectorizer.transform([preProcess(p) for p in texts]))
+    return clf.predict(
+        vectorizer.transform([pre_process(sentence) for sentence in texts])
+    )
+
 
 def _get_profane_prob(prob):
-  return prob[1]
+    return prob[1]
+
 
 def tahminlik(texts):
-    return np.apply_along_axis(_get_profane_prob, 1, model.predict_proba(vectorizer.transform([preProcess(p) for p in texts])))
+    return np.apply_along_axis(
+        _get_profane_prob, 1,
+        clf.predict_proba(
+            vectorizer.transform([pre_process(s) for s in texts])))
