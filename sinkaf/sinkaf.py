@@ -39,8 +39,7 @@ def pre_process(s, n=5):
 
 def tahmin(texts):
     return clf.predict(
-        vectorizer.transform([pre_process(sentence) for sentence in texts])
-    )
+        vectorizer.transform([pre_process(sentence) for sentence in texts]))
 
 
 def _get_profane_prob(prob):
