@@ -116,3 +116,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# BERT data
+sinkaf/data/data_bert.csv
