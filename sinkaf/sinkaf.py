@@ -4,12 +4,13 @@ import pkg_resources
 import re
 import string
 
-table = str.maketrans("", "", string.punctuation)
+from urllib.request import urlopen
+
+table = str.maketrans('', '', string.punctuation)
 vectorizer = joblib.load(
-    pkg_resources.resource_filename("sinkaf", "data/vectorizer.joblib")
-)
-clf = joblib.load(pkg_resources.resource_filename(
-    "sinkaf", "data/clf.joblib"))
+    urlopen("https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/vectorizer.joblib?raw=true"))
+clf = joblib.load(
+    urlopen("https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/clf.joblib?raw=true"))
 
 
 def remove_user_names(s):
