@@ -30,21 +30,31 @@ pip install sinkaf
 
 ```python
 from sinkaf import Sinkaf
-
+  
 snf = Sinkaf()
 
 snf.tahmin(["çok tatlı çocuk", "çok şerefsiz çocuk"])
 # array([False,  True])
 
 snf.tahminlik(["çok tatlı çocuk", "çok şerefsiz çocuk"])
-# array([0.06217876, 0.99132834])
+# array([0.09811712, 0.86237484])
+```
+
+### Alternatif model
+```python
+snf = Sinkaf(model = "BERT")
 
 snf.tahmin_nn(["çok tatlı çocuk", "çok şerefsiz çocuk"])
 # array([False,  True])
 
 snf.tahminlik_nn(["çok tatlı çocuk", "çok şerefsiz çocuk"])
 # array([0.26865139 0.85412345])
+
 ```
 
 ## İyi çalışıyor mu?
-Fena değil gibi ama tabi daha iyi kesinlikle olabilir. Detaylar için bkz. [link](sinkaf.ipynb)
+Fena değil gibi ama tabi daha iyi kesinlikle olabilir. 
+
+Detaylar için:   
+- [`sinkaf()`](sinkaf.ipynb)
+- [`sinkaf(model = "BERT")`](sinkaf_alternatif.ipynb)
