@@ -26,7 +26,7 @@ class Sinkaf:
             if self.model == Sinkaf.BERT_HIGH_PRECISION_MODEL_NAME:
                 self.clf = joblib.load(urlopen(
                     "https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/clf_nn_precision.joblib?raw=true"))
-            elif self.model == Sinkaf.BERT_HIGH_PRECISION_MODEL_NAME:
+            elif self.model == Sinkaf.BERT_HIGH_RECALL_MODEL_NAME:
                 self.clf = joblib.load(urlopen(
                     "https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/clf_nn_recall.joblib?raw=true"))
             # Bert modeli icin kullanilacaklar
