@@ -5,23 +5,34 @@ import subprocess
 import sys
 
 
-# pylint: disable=undefined-variable
-
-
 class Sinkaf:
 
     BERT_MAX_SENTENCE_TOKEN_LENGTH = 113
+    BERT_HIGH_PRECISION_MODEL_NAME = "bert_pre"
+    BERT_HIGH_RECALL_MODEL_NAME = "bert_rec"
+    BERT_MODEL_NAMES = [
+        BERT_HIGH_PRECISION_MODEL_NAME,
+        BERT_HIGH_RECALL_MODEL_NAME]
+    LINEAR_HIGH_PRECISION_MODEL_NAME = "linear"
+    LINEAR_HIGH_RECALL_MODEL_NAME = "linear_rec"
 
-    def __init__(self, model="linear"):
+    def __init__(self, model=LINEAR_HIGH_PRECISION_MODEL_NAME):
 
         self.model = model
 
-        if (self.model == "linear"):
+        if self.model == Sinkaf.LINEAR_HIGH_PRECISION_MODEL_NAME:
             self.clf = joblib.load(urlopen(
                 "https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/model_linearSVC.joblib?raw=true"))
-        elif(self.model == "BERT"):
+        elif self.model == Sinkaf.LINEAR_HIGH_RECALL_MODEL_NAME:
             self.clf = joblib.load(urlopen(
-                "https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/clf_nn.joblib?raw=true"))
+                "https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/model_linearSVC_2.joblib?raw=true"))
+        elif self.model in Sinkaf.BERT_MODEL_NAMES:
+            if self.model == Sinkaf.BERT_HIGH_PRECISION_MODEL_NAME:
+                self.clf = joblib.load(urlopen(
+                    "https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/clf_nn_precision.joblib?raw=true"))
+            elif self.model == Sinkaf.BERT_HIGH_PRECISION_MODEL_NAME:
+                self.clf = joblib.load(urlopen(
+                    "https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/clf_nn_recall.joblib?raw=true"))
             # Bert modeli icin kullanilacaklar
             try:
                 import torch
