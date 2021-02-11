@@ -41,8 +41,13 @@ snf.tahminlik(["çok tatlı çocuk", "çok şerefsiz çocuk"])
 ```
 
 ### Alternatif model
+
+BERT kullanılarak vektörize edilmiş veri üzerinde eğitilmiş modeller:
+- bet_pre: Küfürlü cümlelerin saptanmasında düşük duyarlılık yüksek kesinlik
+- bert_rec: Küfürlü cümlelerin saptanmasında yüksek duyarlılık az kesinlik
+
 ```python
-snf = Sinkaf(model = "BERT")
+snf = Sinkaf(model = "bert_pre")
 
 snf.tahmin(["çok tatlı çocuk", "çok şerefsiz çocuk"])
 # array([False,  True])
