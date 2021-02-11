@@ -81,14 +81,14 @@ class Sinkaf:
         return padded
 
     def tahmin(self, texts):
-        if (self.model == Sinkaf.LINEAR_MODEL_NAME):
+        if self.model == Sinkaf.LINEAR_MODEL_NAME:
             return self.clf.predict(texts)
-        elif(self.model == Sinkaf.BERT_MODEL_NAMES):
+        elif self.model in Sinkaf.BERT_MODEL_NAMES:
             return self.clf.predict(self._bert_vectorize(texts))
 
     def tahminlik(self, texts):
-        if (self.model == Sinkaf.LINEAR_MODEL_NAME):
+        if self.model == Sinkaf.LINEAR_MODEL_NAME:
             return Sinkaf._predict_prob(self.clf, texts)
-        elif(self.model == Sinkaf.BERT_MODEL_NAMES):
+        elif self.model in Sinkaf.BERT_MODEL_NAMES:
             sentence_vectors = self._bert_vectorize(texts)
             return Sinkaf._predict_prob(self.clf, sentence_vectors)
