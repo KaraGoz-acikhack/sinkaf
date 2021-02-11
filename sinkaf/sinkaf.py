@@ -13,19 +13,15 @@ class Sinkaf:
     BERT_MODEL_NAMES = [
         BERT_HIGH_PRECISION_MODEL_NAME,
         BERT_HIGH_RECALL_MODEL_NAME]
-    LINEAR_HIGH_PRECISION_MODEL_NAME = "linear"
-    LINEAR_HIGH_RECALL_MODEL_NAME = "linear_rec"
+    LINEAR_MODEL_NAME = "linear"
 
-    def __init__(self, model=LINEAR_HIGH_PRECISION_MODEL_NAME):
+    def __init__(self, model=LINEAR_MODEL_NAME):
 
         self.model = model
 
-        if self.model == Sinkaf.LINEAR_HIGH_PRECISION_MODEL_NAME:
+        if self.model == Sinkaf.LINEAR_MODEL_NAME:
             self.clf = joblib.load(urlopen(
                 "https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/model_linearSVC.joblib?raw=true"))
-        elif self.model == Sinkaf.LINEAR_HIGH_RECALL_MODEL_NAME:
-            self.clf = joblib.load(urlopen(
-                "https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/model_linearSVC_2.joblib?raw=true"))
         elif self.model in Sinkaf.BERT_MODEL_NAMES:
             if self.model == Sinkaf.BERT_HIGH_PRECISION_MODEL_NAME:
                 self.clf = joblib.load(urlopen(
