@@ -1,2 +1,2 @@
-from .sinkaf import tahmin, tahminlik
-__version__="0.0.1"
+from .sinkaf import Sinkaf
+__version__ = "0.0.1"

@@ -29,13 +29,21 @@ pip install sinkaf
 ## Nasıl kullanırım?
 
 ```python
-from sinkaf import tahmin, tahminlik
+from sinkaf import Sinkaf
 
-tahmin(["çok tatlı çocuk", "çok şerefsiz çocuk"])
+snf = Sinkaf()
+
+snf.tahmin(["çok tatlı çocuk", "çok şerefsiz çocuk"])
 # array([False,  True])
 
-tahminlik(["çok tatlı çocuk", "çok şerefsiz çocuk"])
+snf.tahminlik(["çok tatlı çocuk", "çok şerefsiz çocuk"])
 # array([0.06217876, 0.99132834])
+
+snf.tahmin_nn(["çok tatlı çocuk", "çok şerefsiz çocuk"])
+# array([False,  True])
+
+snf.tahminlik_nn(["çok tatlı çocuk", "çok şerefsiz çocuk"])
+# array([0.26865139 0.85412345])
 ```
 
 ## İyi çalışıyor mu?
