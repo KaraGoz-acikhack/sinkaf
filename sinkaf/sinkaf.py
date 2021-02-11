@@ -4,6 +4,7 @@ import numpy as np
 from urllib.request import urlopen
 from transformers import AutoTokenizer, AutoModel
 
+
 class Sinkaf:
 
     BERT_MAX_SENTENCE_TOKEN_LENGTH = 113
@@ -26,7 +27,11 @@ class Sinkaf:
     def _bert_vectorize(self, texts):
         input_ids = self._tokenize_input(texts)
         return self._sentence_2_vec(input_ids)
-    
+        
+    @staticmethod
+    def _get_profane_prob(prob):
+        return prob[1]
+
     @staticmethod
     def _predict_prob(clf, sentence_vectors):
         return np.apply_along_axis(
@@ -56,7 +61,7 @@ class Sinkaf:
 
     def tahminlik(self, texts):
         if (self.model == "linear"):
-            return self.clf.predict_proba(texts)
+            return Sinkaf._predict_prob(self.clf, texts)
         elif(self.model == "BERT"):
             sentence_vectors = self._bert_vectorize(texts)
             return Sinkaf._predict_prob(self.clf, sentence_vectors)
