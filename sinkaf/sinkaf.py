@@ -1,24 +1,36 @@
-import torch
 import joblib
 import numpy as np
 from urllib.request import urlopen
-from transformers import AutoTokenizer, AutoModel
+import subprocess
+import sys
+
+
+# pylint: disable=undefined-variable
 
 
 class Sinkaf:
 
     BERT_MAX_SENTENCE_TOKEN_LENGTH = 113
 
-    def __init__(self, model = "linear"):
-        
+    def __init__(self, model="linear"):
+
         self.model = model
-        
+
         if (self.model == "linear"):
-            self.clf = joblib.load(urlopen("https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/model_linearSVC.joblib?raw=true"))
+            self.clf = joblib.load(urlopen(
+                "https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/model_linearSVC.joblib?raw=true"))
         elif(self.model == "BERT"):
-            self.clf = joblib.load(urlopen("https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/clf_nn.joblib?raw=true"))
+            self.clf = joblib.load(urlopen(
+                "https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/clf_nn.joblib?raw=true"))
             # Bert modeli icin kullanilacaklar
-            print("Tek seferlik BERT kurulumu gerekebilir.\n")
+            try:
+                import torch
+                from transformers import AutoTokenizer, AutoModel
+            except ImportError:
+                print("BERT kullanimi icin torch ve transformers paketleri kurulacak.\n")
+                Sinkaf._install_package("torch")
+                Sinkaf._install_package("transformers")
+            print("Tek seferlik BERT kurulumu gerekebilmektedir.\n")
             self.tokenizer = AutoTokenizer.from_pretrained(
                 "dbmdz/bert-base-turkish-128k-uncased")
             self.bert = AutoModel.from_pretrained(
@@ -27,18 +39,26 @@ class Sinkaf:
     def _bert_vectorize(self, texts):
         input_ids = self._tokenize_input(texts)
         return self._sentence_2_vec(input_ids)
-        
+
     @staticmethod
     def _get_profane_prob(prob):
         return prob[1]
+
+    @staticmethod
+    def _install_package(package):
+        subprocess.check_call(
+            [sys.executable, "-m", "pip", "install", package])
 
     @staticmethod
     def _predict_prob(clf, sentence_vectors):
         return np.apply_along_axis(
             Sinkaf._get_profane_prob, 1,
             clf.predict_proba(sentence_vectors))
-            
-    def _sentence_2_vec(self, input_ids):
+
+    def _sentence_2_vec(self, padded):
+        import torch
+        # pylint: disable=no-member, not-callable
+        input_ids = torch.tensor(np.array(padded)).to(torch.int64)
         with torch.no_grad():
             last_hidden_states = self.bert(input_ids)
             features = last_hidden_states[0][:, 0, :].numpy()
@@ -49,9 +69,7 @@ class Sinkaf:
             s, add_special_tokens=True) for s in texts]
         padded = np.array(
             [s + [0]*(Sinkaf.BERT_MAX_SENTENCE_TOKEN_LENGTH-len(s)) for s in tokenized])
-        # pylint: disable=no-member, not-callable
-        input_ids = torch.tensor(np.array(padded)).to(torch.int64)
-        return input_ids
+        return padded
 
     def tahmin(self, texts):
         if (self.model == "linear"):
