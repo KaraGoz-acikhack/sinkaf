@@ -1,21 +1,20 @@
-from urllib.request import urlopen
+import torch
 import joblib
 import numpy as np
-import torch
+from urllib.request import urlopen
+from transformers import AutoTokenizer, AutoModel
 
-class Sinkaf():
+class Sinkaf:
 
     BERT_MAX_SENTENCE_TOKEN_LENGTH = 113
 
-    def __init__(self, model = 'linear'):
+    def __init__(self, model = "linear"):
         
         self.model = model
         
-        if (self.model == 'linear'):
+        if (self.model == "linear"):
             self.clf = joblib.load(urlopen("https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/model_linearSVC.joblib?raw=true"))
-        elif(self.model == 'BERT'):
-            from transformers import AutoTokenizer, AutoModel
-            
+        elif(self.model == "BERT"):
             self.clf = joblib.load(urlopen("https://github.com/eonurk/sinkaf/blob/master/sinkaf/data/clf_nn.joblib?raw=true"))
             # Bert modeli icin kullanilacaklar
             print("Tek seferlik BERT kurulumu gerekebilir.\n")
@@ -50,14 +49,14 @@ class Sinkaf():
         return input_ids
 
     def tahmin(self, texts):
-        if (self.model == 'linear'):
+        if (self.model == "linear"):
             return self.clf.predict(texts)
-        elif(self.model == 'BERT'):
+        elif(self.model == "BERT"):
             return self.clf.predict(self._bert_vectorize(texts))
 
     def tahminlik(self, texts):
-        if (self.model == 'linear'):
+        if (self.model == "linear"):
             return self.clf.predict_proba(texts)
-        elif(self.model == 'BERT'):
+        elif(self.model == "BERT"):
             sentence_vectors = self._bert_vectorize(texts)
             return Sinkaf._predict_prob(self.clf, sentence_vectors)
