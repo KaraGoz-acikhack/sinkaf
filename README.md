@@ -44,10 +44,10 @@ snf.tahminlik(["çok tatlı çocuk", "çok şerefsiz çocuk"])
 ```python
 snf = Sinkaf(model = "BERT")
 
-snf.tahmin_nn(["çok tatlı çocuk", "çok şerefsiz çocuk"])
+snf.tahmin(["çok tatlı çocuk", "çok şerefsiz çocuk"])
 # array([False,  True])
 
-snf.tahminlik_nn(["çok tatlı çocuk", "çok şerefsiz çocuk"])
+snf.tahminlik(["çok tatlı çocuk", "çok şerefsiz çocuk"])
 # array([0.26865139 0.85412345])
 
 ```
