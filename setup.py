@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="sinkaf", # Replace with your own username
-    version="0.0.4",
+    version="0.0.5",
     author="E Onur Karakaslar",
     author_email="eonurkara@gmail.com",
     description="Türkçe küfürlü içerikleri bulan bir kütüphane",
