@@ -30,6 +30,8 @@ class Sinkaf:
                 print("BERT kullanimi icin torch ve transformers paketleri kurulacak.\n")
                 Sinkaf._install_package("torch")
                 Sinkaf._install_package("transformers")
+            finally:
+                from transformers import AutoTokenizer, AutoModel
             print("Tek seferlik BERT kurulumu gerekebilmektedir.\n")
             self.tokenizer = AutoTokenizer.from_pretrained(
                 "dbmdz/bert-base-turkish-128k-uncased")
