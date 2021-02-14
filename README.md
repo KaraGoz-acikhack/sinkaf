@@ -23,7 +23,7 @@ Arka planda modelimizi eğitmek için [A corpus of Turkish offensive language](h
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/sinkaf?color=orange)
 
 ```python
-pip install sinkaf
+pip3 install sinkaf
 ```
 
 ## Nasıl kullanırım?
