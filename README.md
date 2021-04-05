@@ -20,7 +20,7 @@ Arka planda modelimizi eğitmek için [A corpus of Turkish offensive language](h
 ## Nasıl yüklerim?
 
 [![PyPI version](https://badge.fury.io/py/sinkaf.svg)](https://badge.fury.io/py/sinkaf)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/sinkaf?color=orange)
+[![Downloads](https://static.pepy.tech/personalized-badge/sinkaf?period=total&units=international_system&left_color=grey&right_color=orange&left_text=downloads)](https://pepy.tech/project/sinkaf)
 
 ```properties
 pip3 install sinkaf
