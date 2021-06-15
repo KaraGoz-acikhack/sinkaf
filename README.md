@@ -63,3 +63,4 @@ Fena değil gibi ama tabi daha iyi kesinlikle olabilir.
 Detaylar için:   
 - [`sinkaf()`](sinkaf.ipynb)
 - [`sinkaf(model = "bert_pre")`](sinkaf_alternatif.ipynb)
+
