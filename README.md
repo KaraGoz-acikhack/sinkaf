@@ -65,11 +65,9 @@ Detaylar için:
 - [`sinkaf()`](sinkaf.ipynb)
 - [`sinkaf(model = "bert_pre")`](sinkaf_alternatif.ipynb)
 
-## KaraGöz 
-KaraGöz ekibi olarak 2 kişiyiz: [Onur **Kara**kaşlar](https://github.com/eonurk) ve [Ömer **Göz**üaçık](https://github.com/ogozuacik)
 
-Tüm yarışmacı arkadaşlara başarılar diliyoruz! :)
+---
 
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/22842930/130684726-2bec3749-c76a-46c6-a3ac-3b34b0d84ee4.png">
 
-***sinkaf** Açık Hack'e katılmak amacıyla KaraGöz ekibi tarafından geliştirilmiştir.*
+***sinkaf** Açık Hack 2021'e katılmak amacıyla [Kara](https://github.com/eonurk)[Göz](https://github.com/ogozuacik) ekibi tarafından geliştirilmiştir.*
