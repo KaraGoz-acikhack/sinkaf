@@ -70,4 +70,16 @@ Detaylar için:
 
 <a href="https://www.acikhack.com/"><img width="960" alt="image" src="https://user-images.githubusercontent.com/22842930/130684726-2bec3749-c76a-46c6-a3ac-3b34b0d84ee4.png"></a>
 
-***sinkaf** Açık Hack 2021'e katılmak amacıyla [Kara](https://github.com/eonurk)[Göz](https://github.com/ogozuacik) ekibi tarafından geliştirilmiştir.*
+***sinkaf**, Açık Hack 2021'e katılmak amacıyla [Kara](https://github.com/eonurk)[Göz](https://github.com/ogozuacik) ekibi tarafından geliştirilmiştir.*
+
+<div class="footnote_images">
+  <a url="https://github.com/eonurk">
+    <img src="https://user-images.githubusercontent.com/22842930/130747072-f0718a65-5a58-4ddd-9fda-7b127e62fc26.png" height="auto" width="70">
+  </a>
+  <a url="https://github.com/ogozuacik">
+    <img src="https://user-images.githubusercontent.com/22842930/130747289-afbde44d-6fe8-4a72-aaf8-31be00f4abd6.png" height="auto" width="70">
+  </a>
+</div>
+
+
+
