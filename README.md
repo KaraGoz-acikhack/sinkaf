@@ -6,6 +6,5 @@
 
 ### Taşındık - Moved
 
-Orijinal repo [buradadır](https://github.com/eonurk/sinkaf).
-The original repo is [here](https://github.com/eonurk/sinkaf).
+Orijinal repo [buradadır](https://github.com/eonurk/sinkaf) - The original repo is [here](https://github.com/eonurk/sinkaf)
 
